@@ -44,7 +44,7 @@ function PlaceItem(props) {
         process.env.REACT_APP_BACKEND_URL+`/places/${props.id}`,
         "DELETE",
         null,{
-          Authorization: "Bearer " + auth.token
+          authorization: "Bearer " + auth.token
         }
    
       );
@@ -91,7 +91,7 @@ function PlaceItem(props) {
           {isLoading && <LoadingSpinner asOverlay />}
           
           <div className="place-item__image">
-            <img src={ `${process.env.REACT_APP_ASSET_URL}/${props.image}`} alt="" />
+            <img src={process.env.REACT_APP_ASSET_URL+`/${props.image}`} alt="" />
           </div>
 
           <div className="place-item__info">

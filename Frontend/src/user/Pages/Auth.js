@@ -65,14 +65,13 @@ const Auth = () => {
   };
 
   const authSubmitHandler = async event => {
-    console.log(formState.inputs)
     event.preventDefault();
 
     if (isLoginMode) {
  
       try {
         const responseData = await sendRequest(
-          process.env.REACT_APP_BACKEND_URL +'/users/login',
+          process.env.REACT_APP_BACKEND_URL+'/users/login',
           'POST',
           JSON.stringify({
             email: formState.inputs.email.value,
@@ -83,7 +82,9 @@ const Auth = () => {
           }
         );
         auth.login(responseData.userId,responseData.token);
-      } catch (err) {}
+      } catch (err) {
+        console.log("auth js 86",err)
+      }
     } else {
       try {
         const formData = new FormData();
@@ -101,7 +102,7 @@ const Auth = () => {
 
         auth.login(responseData.userId,responseData.token);
       } catch (err) {
-
+        console.log("auth js 105",err)
       }
     }
 

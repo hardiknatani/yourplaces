@@ -55,7 +55,7 @@ const [formState,inputHandler] = useForm({
         process.env.REACT_APP_BACKEND_URL+'/places',
         'POST',
         formData,{
-          Authorization: "Bearer "+ auth.token
+          authorization: "Bearer "+ auth.token
         }
       );
       navigate('/')

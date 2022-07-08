@@ -31,7 +31,7 @@ function useAuth() {
       setToken(null);
       setTokenExpirationDate(null);
       setUserId(null);
-      localStorage.removeItem.apply("userData");
+      localStorage.removeItem('userData')
     }, []);
   
     useEffect(() => {
