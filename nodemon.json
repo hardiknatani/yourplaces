@@ -1,0 +1,8 @@
+{
+    "env":{
+        "DB_USER":"hardik",
+        "DB_PASSWORD":"hardik1234",
+        "DB_NAME":"yourplaces",
+        "JWT_KEY": "pineapple"
+    }
+}
