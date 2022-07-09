@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node Backend/app.js -p $PORT",
+    "start": "node Backend/app.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm start\"  \"npm run client\" "
   },
