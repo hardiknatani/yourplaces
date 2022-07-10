@@ -52,7 +52,7 @@ const [formState,inputHandler] = useForm({
       formData.append('image', formState.inputs.image.value);
 
       const responseData = await sendRequest(
-        process.env.REACT_APP_BACKEND_URL+'/places',
+        `http://localhost:${process.env.PORT}/api/places`,
         'POST',
         formData,{
           authorization: "Bearer "+ auth.token

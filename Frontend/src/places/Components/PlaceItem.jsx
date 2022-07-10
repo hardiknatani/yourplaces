@@ -41,7 +41,7 @@ function PlaceItem(props) {
     hideDeleteWarning(false);
     try {
       await sendRequest(
-        process.env.REACT_APP_BACKEND_URL+`/places/${props.id}`,
+        `http://localhost:${process.env.PORT}/api/places/${props.id}`,
         "DELETE",
         null,{
           authorization: "Bearer " + auth.token
