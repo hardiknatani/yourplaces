@@ -38,6 +38,26 @@ const [formState,inputHandler] = useForm({
   }
 },false);
 
+async  function uploadImage(file){
+  const data = new FormData();
+  data.append("file",file)
+      data.append("upload_preset", "zpq3re9b");
+      data.append("cloud_name", "yourhappyplaces");
+  const respData = await fetch("https://api.cloudinary.com/v1_1/yourhappyplaces/image/upload", {
+        method: "post",
+        body: data,
+      })
+        .then((res) => res.json())
+      .then((data) => {
+        return (data.url.toString());
+
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      console.log(respData)
+      return respData
+        }  
 
 
   const placeSubmitHandler = async event=>{
@@ -49,7 +69,7 @@ const [formState,inputHandler] = useForm({
       formData.append('description', formState.inputs.description.value);
       formData.append('address', formState.inputs.address.value);
       formData.append('creator', auth.userId);
-      formData.append('image', formState.inputs.image.value);
+      formData.append('image', await uploadImage(formState.inputs.image.value));
 
       const responseData = await sendRequest(
         process.env.REACT_APP_BACKEND_URL+'/places',

@@ -87,11 +87,32 @@ const Auth = () => {
       }
     } else {
       try {
+
+        async  function uploadImage(file){
+          const data = new FormData();
+          data.append("file",file)
+              data.append("upload_preset", "zpq3re9b");
+              data.append("cloud_name", "yourhappyplaces");
+          const respData = await fetch("https://api.cloudinary.com/v1_1/yourhappyplaces/image/upload", {
+                method: "post",
+                body: data,
+              })
+                .then((res) => res.json())
+              .then((data) => {
+                return (data.url.toString());
+        
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+              return respData
+                } 
+
         const formData = new FormData();
         formData.append('email', formState.inputs.email.value);
         formData.append('name', formState.inputs.name.value);
         formData.append('password', formState.inputs.password.value);
-        formData.append('image', formState.inputs.image.value);
+        formData.append('image',await uploadImage(formState.inputs.image.value));
 
 
         const responseData = await sendRequest(
