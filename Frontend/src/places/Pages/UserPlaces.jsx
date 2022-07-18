@@ -23,7 +23,6 @@ function UserPlaces(props) {
     };
     fetchPlaces();
   }, [sendRequest, userId]);
-
   function placeDeletedHandler(deletedPlaceId) {
     setLoadedPlaces((prevPlaces) =>
       prevPlaces.filter((place) => place.id !== deletedPlaceId)

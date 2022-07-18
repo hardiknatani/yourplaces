@@ -1,34 +1,27 @@
-const axios = require('axios');
-
-const HttpError = require('../models/http-error');
-
-const API_KEY = process.env.GEOCODING_API_KEY;
-
-async function getCoordsForAddress(address) {
- const coordinates =  {
-    lat: 40.7484474,
-    lng: -73.9871516
-  };
-//   const response = await axios.get(
-//     `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
-//       address
-//     )}&key=${API_KEY}`
-//   );
-
-//   const data = response.data;
-
-//   if (!data || data.status === 'ZERO_RESULTS') {
-//     const error = new HttpError(
-//       'Could not find location for the specified address.',
-//       422
-//     );
-//     throw error;
-//   }
-
-//   const coordinates = data.results[0].geometry.location;
+//  function getCoordsForAddress(address){
 
 
-  return coordinates;
-}
+//   require([
+//     "esri/config",
+//     "esri/rest/locator",
+//     ], function(esriConfig,Map, MapView, locator, Graphic) {
 
-module.exports = getCoordsForAddress;
+//     esriConfig.apiKey = "AAPKf876d851d13f4d90adadf2a6c1681336T0RPdFpwKjxw5LR1wnwiIYki7_u5x_TZVdpFnU_zmHs_0kDSelbELDO2rVSY16Q7";
+  
+  
+//   const geoCodingServiceUrl = "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer";
+  
+//   const params = {
+//     address: {
+//       "address":address
+//     }        }
+
+  
+//  locator.addressToLocations(geoCodingServiceUrl,params).then((results)=>{
+//     console.log(results);
+//   })
+  
+//   });
+// }
+
+// module.exports = getCoordsForAddress;

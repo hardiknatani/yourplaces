@@ -83,7 +83,7 @@ const Auth = () => {
         );
         auth.login(responseData.userId,responseData.token);
       } catch (err) {
-        console.log("auth js 86",err)
+        // console.log("auth js 86",err)
       }
     } else {
       try {
@@ -103,7 +103,7 @@ const Auth = () => {
         
               })
               .catch((err) => {
-                console.log(err);
+                // console.log(err);
               });
               return respData
                 } 
@@ -123,7 +123,7 @@ const Auth = () => {
 
         auth.login(responseData.userId,responseData.token);
       } catch (err) {
-        console.log("auth js 105",err)
+        // console.log("auth js 105",err)
       }
     }
 

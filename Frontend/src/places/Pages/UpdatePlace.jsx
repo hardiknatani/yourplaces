@@ -21,7 +21,7 @@ function UpdatePlace() {
   const [loadedPlace, setLoadedPlace] = useState();
   const placeId = useParams().placeId;
   const navigate = useNavigate()
-  console.log("place id to search: ", placeId)
+  // console.log("place id to search: ", placeId)
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -95,7 +95,7 @@ function UpdatePlace() {
     );
   }
 
-  console.log(error)
+  // console.log(error)
   if (isLoading) {
     return (
       <div className="center">

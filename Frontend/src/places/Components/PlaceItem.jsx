@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Card from "../../shared/Components/Card";
 import Button from "../../shared/Components/formElements/Button";
 import Modal from "../../shared/UIComponents/Modal";
-import Map from "../../shared/UIComponents/Map";
+import MapComponent from "../../shared/UIComponents/Map";
 import { AuthContext } from "../../shared/Context/auth-context";
 import { useHttpClient } from "../../shared/Components/hooks/http-hook";
 import ErrorModal from "../../shared/UIComponents/ErrorModal";
@@ -48,10 +48,10 @@ function PlaceItem(props) {
         }
    
       );
-      console.log(auth.token)
       props.onDelete(props.id);
     } catch (err) {}
   }
+ 
 
   return (
     <React.Fragment>
@@ -63,8 +63,8 @@ function PlaceItem(props) {
         footerClass="place-item__modal-actions"
         footer={<Button onClick={closeMap}>CLOSE</Button>}
       >
-        <div className="map-container">
-          <Map center={props.coordinates} zoom={16} />
+        <div >
+          <MapComponent center={props.coordinates} zoom={16} />
         </div>
       </Modal>
       <Modal

@@ -33,6 +33,8 @@ function PlaceList(props) {
 }</div>
     )
   }
+
+  // console.log(items.newLocation)
   return (
 <ul className="place-list">
 {props.items.map(item=>{ return  <PlaceItem 
@@ -43,7 +45,7 @@ function PlaceList(props) {
        desc={item.description}
        address={item.address}
        creatorId={item.creator}
-       coordinates={item.location}
+       coordinates={item.newLocation}
        onDelete={props.onDeletePlace}
 
       />

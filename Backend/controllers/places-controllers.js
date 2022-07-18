@@ -2,7 +2,6 @@ const uuid = require('uuid');
 const { validationResult } = require('express-validator');
 const mongoose = require('mongoose');
 const fs = require('fs')
-
 const HttpError = require('../models/http-error');
 const getCoordsForAddress = require('../util/location');
 const Place = require('../models/place');
@@ -74,26 +73,22 @@ const createPlace = async (req, res, next) => {
       new HttpError('Invalid inputs passed, please check your data.', 422)
     );
   }
+  
 
-  const { title, description, address,image, creator } = req.body;
+  const { title, description, address,image, creator,location } = req.body;
 
-  let coordinates;
-  try {
-    coordinates = await getCoordsForAddress(address);
-  } catch (error) {
-    return next(error);
-  }
+let newLocation = JSON.parse(location)
+
 
   const createdPlace = new Place({
     title,
     description,
     address,
-    location: coordinates,
+    newLocation,
     image,
     creator
   });
 
-  console.log(createdPlace)
 
   let user;
   try {
@@ -108,7 +103,6 @@ const createPlace = async (req, res, next) => {
     return next(error);
   }
 
-  console.log("user: ", user);
 
   try {
     const sess = await mongoose.startSession();
@@ -121,7 +115,7 @@ const createPlace = async (req, res, next) => {
   } catch (err) {
     console.log(err)
     const error = new HttpError(
-      'Creating place failed, please try again.',
+      'line 119:  Creating place failed, please try again.',
       500
     );
     return next(error);
@@ -219,9 +213,6 @@ const deletePlace = async (req, res, next) => {
     return next(error);
   }
 
-  fs.unlink(imagePath ,(err)=>{
-    console.log(err)
-    })
 
   res.status(200).json({ message: 'Deleted place.' });
 };

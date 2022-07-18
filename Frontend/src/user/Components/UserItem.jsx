@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 function UserItem(props) {
 
-  console.log(process.env.REACT_APP_ASSET_URL+`/${props.image}`)
  
   return (
     <li className="user-item">
